@@ -3,7 +3,10 @@ import six
 from django.test import TestCase
 from explorer.tests.factories import SimpleQueryFactory
 from explorer.models import QueryLog, Query, QueryResult, ColumnSummary, ColumnHeader
-from mock import patch, Mock
+try:
+    from mock import Mock, patch
+except ImportError:
+    from unittest.mock import Mock, patch
 
 
 class TestQueryModel(TestCase):

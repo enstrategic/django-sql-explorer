@@ -4,7 +4,10 @@ from explorer.tests.factories import SimpleQueryFactory
 from explorer import app_settings
 from explorer.utils import passes_blacklist, param, swap_params, extract_params,\
     shared_dict_update, EXPLORER_PARAM_TOKEN, get_params_from_request, get_params_for_url
-from mock import Mock
+try:
+    from mock import Mock
+except ImportError:
+    from unittest.mock import Mock
 
 
 class TestSqlBlacklist(TestCase):

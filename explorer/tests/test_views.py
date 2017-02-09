@@ -11,7 +11,10 @@ from explorer.tests.factories import SimpleQueryFactory, QueryLogFactory
 from explorer.models import Query, QueryLog, MSG_FAILED_BLACKLIST
 from explorer.utils import user_can_see_query
 from explorer.app_settings import EXPLORER_TOKEN
-from mock import Mock, patch
+try:
+    from mock import Mock, patch
+except ImportError:
+    from unittest.mock import Mock, patch
 
 
 _ = lambda x: x
