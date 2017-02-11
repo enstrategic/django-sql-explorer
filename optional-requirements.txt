@@ -1,5 +1,5 @@
 celery>=4.0
-tinys3==0.1.12
+boto3==1.4.4
 SQLAlchemy>=1.1.5
 xlsxwriter==0.9.6
 reportlab==3.3.0

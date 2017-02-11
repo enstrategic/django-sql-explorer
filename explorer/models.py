@@ -13,7 +13,7 @@ from explorer.utils import (
     extract_params,
     shared_dict_update,
     get_connection,
-    get_s3_connection,
+    get_s3_bucket,
     get_params_for_url
 )
 
@@ -105,8 +105,8 @@ class Query(models.Model):
     @property
     def snapshots(self):
         if app_settings.ENABLE_TASKS:
-            conn = get_s3_connection()
-            res = conn.list('query-%s.snap-' % self.id)
+            bucket = get_s3_bucket()
+            res = bucket.objects.filter(Prefix='query-%s.snap-' % self.id)
             return sorted(res, key=lambda s: s['last_modified'])
 
 

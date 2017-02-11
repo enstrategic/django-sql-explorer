@@ -144,8 +144,14 @@ def noop_decorator(f):
     return f
 
 
-def get_s3_connection():
-    import tinys3
-    return tinys3.Connection(app_settings.S3_ACCESS_KEY,
-                             app_settings.S3_SECRET_KEY,
-                             default_bucket=app_settings.S3_BUCKET)
+def get_s3_session():
+    import boto3
+    return boto3.Session(
+        aws_access_key_id=app_settings.S3_ACCESS_KEY,
+        aws_secret_access_key=app_settings.S3_SECRET_KEY
+    )
+
+
+def get_s3_bucket():
+    session = get_s3_session()
+    return session.resource('s3').Bucket(app_settings.S3_BUCKET)

@@ -54,7 +54,7 @@ MIDDLEWARE_CLASSES = (
 
 TEST_RUNNER = 'explorer.tests.test_runner.CeleryTestSuiteRunner'
 
-CELERY_ALWAYS_EAGER = True
+CELERY_TASK_ALWAYS_EAGER = True
 BROKER_BACKEND = 'memory'
 
 # Explorer-specific
@@ -67,3 +67,5 @@ EXPLORER_TRANSFORMS = (
 EXPLORER_USER_QUERY_VIEWS = {}
 EXPLORER_TASKS_ENABLED = True
 EXPLORER_S3_BUCKET = 'thisismybucket.therearemanylikeit.butthisoneismine'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
