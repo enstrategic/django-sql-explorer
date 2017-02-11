@@ -1,5 +1,4 @@
 import os
-import djcelery
 SECRET_KEY = 'shhh'
 DEBUG = True
 STATIC_URL = '/static/'
@@ -39,7 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'explorer',
-    'djcelery'
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -54,9 +52,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
 )
 
-TEST_RUNNER = 'djcelery.contrib.test_runner.CeleryTestSuiteRunner'
+TEST_RUNNER = 'explorer.tests.test_runner.CeleryTestSuiteRunner'
 
-djcelery.setup_loader()
 CELERY_ALWAYS_EAGER = True
 BROKER_BACKEND = 'memory'
 

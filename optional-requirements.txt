@@ -1,6 +1,6 @@
-celery>=3.1,<4.0
+celery>=4.0
 tinys3==0.1.12
-django-celery>=3.1.0
+SQLAlchemy>=1.1.5
 xlsxwriter==0.9.6
 reportlab==3.3.0
 django-xhtml2pdf==0.0.3
