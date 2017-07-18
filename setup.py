@@ -12,7 +12,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name="django-sql-explorer-ens",
+    name="django-sql-explorer",
     version=__version__,
     author="Chris Clark",
     author_email="chris@untrod.com",
